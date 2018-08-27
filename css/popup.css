@@ -1,0 +1,43 @@
+    #finderPOP h1 {
+        font-family: Impact, sans-serif !important;
+        font-size: 29px !important;
+        font-style: italic !important;
+        color: white !important;
+        background-color: rgba(0, 0, 0, 0) !important;
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
+        padding: 0px !important;
+        text-transform: uppercase !important;
+        font-weight: 500 !important;
+        line-height: 1 !important;
+        display: block !important;
+        letter-spacing: normal !important;
+    }
+
+    #finderPOP kbd {
+        background-color: #eee !important;
+        border-radius: 3px !important;
+        border: 1px solid #b4b4b4 !important;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset !important;
+        color: #333 !important;
+        display: inline-block !important;
+        font-family: consolas, "Liberation Mono", courier, monospace !important;
+        font-size: .85em !important;
+        font-weight: 700 !important;
+        line-height: 1 !important;
+        padding: 2px 4px !important;
+        white-space: nowrap !important;
+    }
+
+    #finderPOP h8 {
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: white !important;
+        font-size: 11px !important;
+        margin-bottom: 1px !important;
+        box-sizing: border-box !important;
+        line-height: 18px !important;
+        text-align: left !important;
+        border-collapse: collapse !important;
+        -webkit-tap-highlight-color: transparent !important;
+        letter-spacing: normal !important;
+    }

@@ -1,0 +1,19 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "script",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "semi": ["error", "always"]
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "jquery": true,
+        "es6": true,
+        "mongo": true
+    }
+}
