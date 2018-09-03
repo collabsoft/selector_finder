@@ -38,15 +38,11 @@ var compileDataModule = (function () {
     };
 
     var log_start = function (start) {
-        //console.log("# Investigated Element: #");
-        //console.log(start);
         $("*").removeClass("hova_recreate_color");
         $(start).not("#finderUIdiv").addClass("hova_recreate_color");
     };
 
     var set_reset_element = function (selector) {
-        //console.log("Element reset");
-        // console.log("Selector Finder: " + selector.replace(/^[\s]*/g,''));
         var counter = sessionStorage.getItem("navigation_counter");
         if (counter == 0) {
             sessionStorage.setItem("start_node", selector);
@@ -78,7 +74,6 @@ var compileDataModule = (function () {
 
     var set_mapnode_id = function () {
         verify_string(node.id) ? mapnode.id = "#" + escape_characters(node.id) : escape_characters(node.id);
-        // console.log(mapnode.id);
     };
 
     var set_mapnode_class = function () {
@@ -90,7 +85,6 @@ var compileDataModule = (function () {
 
     var set_mapnode_property = function (type) {
         verify_string(node[type]) ? mapnode[type] = "[" + type + "='" + escape_characters(node[type]) + "']" : escape_characters(node[type]);
-        // console.log(mapnode[type]);
     };
 
     var set_mapnode_nth_child = function () {
@@ -181,11 +175,12 @@ var compileDataModule = (function () {
     var selector_builder = function () {
         var selector_array = new Array();
         var selector = "";
-        // console.log(structure);
         for (var i = 0; i < structure.length; i++) { // skips [0]-html- and [1]-body-
             if (structure[i].id) {
                 selector = selector + " " + structure[i].id;
-            } else {
+            } else if (structure[i].name) {
+                selector = selector + " " + structure[i].name;
+            }  else {
                 if (!structure[i].class) { //no class checks :nth_child
                     if (structure[i].same_tag_siblings === 0 && structure[i].same_tag_and_class_siblings === 0)
                         selector = selector + " " + structure[i].tag;
@@ -213,7 +208,6 @@ var compileDataModule = (function () {
                 }
             }
         }
-        // console.log(selector);
         var optimized_selector = selector_optimizer(selector, start);
         return optimized_selector;
     };
@@ -235,8 +229,6 @@ var compileDataModule = (function () {
         } else check_array[1] = "err";
         if(/\\/.test(selector)){
             check_array[2] = "warn2";
-            console.log(check_array);
-            console.log(/\\/.test(selector));
         } 
         is_dynamic(selector) ? check_array[1] = "warn" : check_array[1] = "pass";
         return check_array;
@@ -250,7 +242,6 @@ var compileDataModule = (function () {
     };
 
     var selector_optimizer = function (selector, start) {
-        //console.log(selector);
         var selector_optimized = selector_trim(selector);
         if (!selector_optimized) selector_optimized = selector;
         return selector_optimized;
@@ -263,8 +254,7 @@ var compileDataModule = (function () {
             var results = document.querySelectorAll(selector);
             for (var j = 0; j < selector_array.length; j++) {
                 var returns = document.querySelectorAll(selector_short);
-                if (selector_short && returns.length === results.length && /* returns.indexOf(start) !== -1*/ inArray(start, returns)) {
-                    // console.log(selector_short);
+                if (selector_short && returns.length === results.length && inArray(start, returns)) {
                     var selector_optimized = selector_short;
                     selector_array = selector_short.split(' ');
                 } else {
@@ -275,11 +265,9 @@ var compileDataModule = (function () {
                     index: j
                 };
                 selector_short = exclude_and_stringify(selector_array, element.index);
-                // selector_short = selector_short.replace('\\:','\:');
             }
             return selector_optimized;
         } catch (e) {
-            console.log(e);
             return selector;
         }
     };
@@ -299,7 +287,7 @@ var compileDataModule = (function () {
         var local_array = array;
         if (x) local_array[x] = '';
         var string = JSON.stringify(local_array);
-        string = string.replace(/[\[\"\]]/g, '').replace(/null/g, '').replace(/\,/g, ' ').replace('\\:','\:');
+        string = string.replace(/\["|""|"\]|"/g, '').replace(/null/g, '').replace(/\,/g, ' ').replace('\\:','\:').replace('\\[','\[').replace('\\]','\]');
         return string;
     };
 

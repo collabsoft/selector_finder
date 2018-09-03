@@ -18,7 +18,6 @@ var iframeEvents = (function () {
     var attach_UI_listeners = function () {
 
         $("#innertext_btn").on("click", function (e) {
-            // console.log('click');
             stop_event_propagation(e);
             send_message({ action: 'innertext' });
         });
@@ -36,7 +35,6 @@ var iframeEvents = (function () {
 
         var close_modal = function () {
             reset_ui_content();
-            // reset_ui_position();
             send_message({ action: 'close_modal' });
         };
 
@@ -118,7 +116,6 @@ var iframeEvents = (function () {
     };
 
     window.addEventListener("message", function (event) {
-        // console.log(event.data);
         switch (event.data.action) {
             case 'innertext':
                 handle_innertext(event.data);

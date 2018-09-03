@@ -2,9 +2,8 @@
 The use of this code is free and open to any third party.
 It is not nevertheless not authorized the reproduction in any case whatsoev..
 
-JUST KIDDING!! do whatever you want with it I hope it's useful.
+JUST KIDDING!! do whatever you want  I hope it's useful.
 */
-
 
 // This module injects the css and scripts tags as well as attaching all thge event listeners
 var onLoadModule = (function () {
@@ -32,14 +31,12 @@ var onLoadModule = (function () {
                     e.preventDefault();
                     e.stopPropagation();
                     e.stopImmediatePropagation();
-                    // console.log(keyDown);
                     keyDown = true;
                     return false;
                 }
             });
             $("*").keyup(function (e) {
                 if (e.which == 18) {
-                    // console.log('keyup');
                     keyDown = false;
                     e.preventDefault();
                     e.stopPropagation();
@@ -67,17 +64,13 @@ var onLoadModule = (function () {
                     e.preventDefault();
                     e.stopPropagation();
                     e.stopImmediatePropagation();
-                    // console.log('clicked');
                     // keyDown = false;
                     compileDataModule.initialize(this, e);
                     return false;
                 }
             });
-
-
             console.log("...Selector Finder is running...");
         });
-        // console.log("Selector Finder: onloadModule initialsed!");
     };
 
     sessionStorage.setItem("navigation_counter", 0);

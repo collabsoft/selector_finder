@@ -57,17 +57,13 @@ var messageCenter = (function () {
       case "warn":
         var dynamic_str = "<warn>&#x26a0;  this query is porbably dynamic, pay attention</warn><br>";
         break;
-      // case "warn2":
-      //   var dynamic_str = "";
-      //   break;
       case "err":
         var dynamic_str = "<err>&#x2717;  this query is broken </err><br>";
         break;
     }
-    if(check_array[2] && check_array[2] === "warn2") check_str += "<warn>&#x26a0;  this query contains escape characters.</warn><br>"
+    if(check_array[2] && check_array[2] === "warn2") check_str += "<warn>&#x26a0;  this query contains the escape character \\ .</warn><br>"
     check = check_str + dynamic_str + "<br><hr>";
     //send message with checks
-    console.log(check);
   };
 
   var get_location_path_check = function (checker) {
@@ -108,7 +104,6 @@ var messageCenter = (function () {
         child,
       }
     };
-    // console.log(message);
     send_message(message);
   };
 
@@ -159,7 +154,6 @@ var messageCenter = (function () {
           find_custom_selector(event.data.custom_selector);
           break;
         default:
-          // console.log(event.data);
           send_message({ action: "error" });
           break;
 
@@ -171,7 +165,6 @@ var messageCenter = (function () {
     try {
       if (custom_selector && custom_selector !== '') {
         var is_matched = tester(custom_selector);
-        // console.log(is_matched);
         send_message({ action: 'check_custom_selector', matched: is_matched });
         actual_node = document.querySelector(custom_selector);
         compileDataModule.initialize(actual_node);
@@ -185,7 +178,6 @@ var messageCenter = (function () {
     try {
       if (custom_selector && custom_selector !== '') {
         var is_matched = tester(custom_selector);
-        // console.log(is_matched);
         send_message({ action: 'check_custom_selector', matched: is_matched });
       }
     } catch (err) {
