@@ -52,17 +52,22 @@ var messageCenter = (function () {
     }
     switch (check_array[1]) {
       case "pass":
-        var dynamic_str = "<pass>&#x2713;  this query doesn't seem to be dynamic. Happy days!</pass><br>";
+        var dynamic_str = "<pass>&#x2713;  this query doesn't seem to be dynamic.Happy days!</pass><br>";
         break;
       case "warn":
         var dynamic_str = "<warn>&#x26a0;  this query is porbably dynamic, pay attention</warn><br>";
         break;
+      // case "warn2":
+      //   var dynamic_str = "";
+      //   break;
       case "err":
         var dynamic_str = "<err>&#x2717;  this query is broken </err><br>";
         break;
     }
+    if(check_array[2] && check_array[2] === "warn2") check_str += "<warn>&#x26a0;  this query contains escape characters.</warn><br>"
     check = check_str + dynamic_str + "<br><hr>";
     //send message with checks
+    console.log(check);
   };
 
   var get_location_path_check = function (checker) {

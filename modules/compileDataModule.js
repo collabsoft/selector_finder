@@ -77,7 +77,8 @@ var compileDataModule = (function () {
     };
 
     var set_mapnode_id = function () {
-        verify_string(node.id) ? mapnode.id = "#" + node.id : node.id;
+        verify_string(node.id) ? mapnode.id = "#" + escape_characters(node.id) : escape_characters(node.id);
+        // console.log(mapnode.id);
     };
 
     var set_mapnode_class = function () {
@@ -88,7 +89,8 @@ var compileDataModule = (function () {
     };
 
     var set_mapnode_property = function (type) {
-        verify_string(node[type]) ? mapnode[type] = "[" + type + "='" + node[type] + "']" : node[type];
+        verify_string(node[type]) ? mapnode[type] = "[" + type + "='" + escape_characters(node[type]) + "']" : escape_characters(node[type]);
+        // console.log(mapnode[type]);
     };
 
     var set_mapnode_nth_child = function () {
@@ -135,9 +137,14 @@ var compileDataModule = (function () {
     };
 
     var verify_string = function (string) {
-        if (string && typeof (string) == 'string' && string != 'undefined' && string != '' && !string.match(':') && !string.match(/\[/g))
+        if (string && typeof (string) == 'string' && string != 'undefined' && string != '' /*&& !string.match(':') && !string.match(/\[/g)*/)
             return true;
         else return false;
+    };
+
+    var escape_characters = function (string) {
+        if (string) string = string.replace(/([\[\]\:]+)/g, "\\$1");
+        return string;
     };
 
     var location_path_builder = function () {
@@ -226,6 +233,11 @@ var compileDataModule = (function () {
                     check_array[0] = "pass";
                 else check_array[0] = "err";
         } else check_array[1] = "err";
+        if(/\\/.test(selector)){
+            check_array[2] = "warn2";
+            console.log(check_array);
+            console.log(/\\/.test(selector));
+        } 
         is_dynamic(selector) ? check_array[1] = "warn" : check_array[1] = "pass";
         return check_array;
     };
@@ -251,7 +263,8 @@ var compileDataModule = (function () {
             var results = document.querySelectorAll(selector);
             for (var j = 0; j < selector_array.length; j++) {
                 var returns = document.querySelectorAll(selector_short);
-                if (selector_short && returns.length === results.length && inArray(start, returns)) {
+                if (selector_short && returns.length === results.length && /* returns.indexOf(start) !== -1*/ inArray(start, returns)) {
+                    // console.log(selector_short);
                     var selector_optimized = selector_short;
                     selector_array = selector_short.split(' ');
                 } else {
@@ -262,9 +275,11 @@ var compileDataModule = (function () {
                     index: j
                 };
                 selector_short = exclude_and_stringify(selector_array, element.index);
+                // selector_short = selector_short.replace('\\:','\:');
             }
             return selector_optimized;
         } catch (e) {
+            console.log(e);
             return selector;
         }
     };
@@ -284,7 +299,7 @@ var compileDataModule = (function () {
         var local_array = array;
         if (x) local_array[x] = '';
         var string = JSON.stringify(local_array);
-        string = string.replace(/[\[\"\]]/g, '').replace(/null/g, '').replace(/\,/g, ' ');
+        string = string.replace(/[\[\"\]]/g, '').replace(/null/g, '').replace(/\,/g, ' ').replace('\\:','\:');
         return string;
     };
 

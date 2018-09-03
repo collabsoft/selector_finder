@@ -1,2 +1,2 @@
   
-var chrome_extension = 'chrome-extension://aleacfocnimnddplebbpbfedfagnckcc';
+var chrome_extension = 'chrome-extension://plhjgkiapklbinmpdbdgabcgnalhaaio';
