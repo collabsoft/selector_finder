@@ -1,0 +1,227 @@
+p1 {
+    text-indent: 30px;
+    color: #3077d0;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: lowercase;
+    display: inline-block;
+    line-height: 10px;
+    margin-bottom: 0px;
+    letter-spacing: normal;
+}
+
+p2 {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: lowercase;
+    line-height: 10px;
+    margin-bottom: 0px;
+    letter-spacing: normal;
+}
+
+h1 {
+    width: auto;
+    font-family: Impact, sans-serif;
+    font-size: 25px;
+    font-style: italic;
+    color: white;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1;
+    display: block;
+    letter-spacing: normal;
+    /* border: 0px rgba(0, 0, 0, 0) ; */
+}
+
+h2 {
+    color: #3077d0;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    text-transform: uppercase;
+}
+
+h3 {
+    width: auto;
+    color: #3077d0;
+    font-family: Courier;
+    text-transform: capitalize;
+    font-size: 31px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 2px;
+    border-bottom: 1px;
+    line-height: 0.9;
+    border-collapse: collapse;
+    letter-spacing: normal;
+    padding: 0px;
+}
+
+h4 {
+    width: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    text-transform: capitalize;
+    color: #3077d0;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.1;
+    box-sizing: border-box;
+    text-align: left;
+    white-space: nowrap;
+    border-collapse: collapse;
+    letter-spacing: normal;
+    -webkit-margin-before: 5px;
+    -webkit-margin-after: 5px;
+    padding: 0px;
+}
+
+h5 {
+    display: inline-block;
+    font-size: 12px;
+    margin: 0 5px 0 0;
+}
+
+h6 {
+    font-size: 15px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    line-height: 1.2;
+}
+
+h7 {
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+h8 {
+    width: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    text-transform: initial;
+    color: white;
+    font-size: 10px;
+    margin-bottom: 1px;
+    box-sizing: border-box;
+    line-height: 18px;
+    text-align: left;
+    border-collapse: collapse;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: normal;
+    padding: 0px;
+}
+
+kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+        0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+    color: #333;
+    display: inline-block;
+    font-family: consolas, 'Liberation Mono', courier, monospace;
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+}
+
+h9 {
+    width: auto;
+    color: #3077d0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    text-transform: lowercase;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 2px;
+    border-bottom: 1px;
+    letter-spacing: normal;
+    padding: 0px;
+}
+
+pass {
+    width: auto;
+    font-family: 'Futura Book', Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    color: green;
+    font-weight: bold;
+    font-size: 13px;
+    border-collapse: collapse;
+    text-align: -webkit-match-parent;
+    list-style-type: none;
+    box-sizing: border-box;
+    letter-spacing: normal;
+    padding: 0px;
+}
+
+err {
+    width: auto;
+    font-family: 'Futura Book', Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    color: red;
+    font-weight: normal;
+    font-size: 13px;
+    border-collapse: collapse;
+    text-align: -webkit-match-parent;
+    list-style-type: none;
+    box-sizing: border-box;
+    letter-spacing: normal;
+    padding: 0px;
+}
+
+err2 {
+    font-family: 'Futura Book', Helvetica, Arial, sans-serif;
+    line-height: 1;
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+    border-collapse: collapse;
+    text-align: -webkit-match-parent;
+    list-style-type: none;
+    box-sizing: border-box;
+    letter-spacing: normal;
+    align-self: center;
+    padding: 0px;
+}
+
+warn {
+    font-family: 'Futura Book', Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    color: orange;
+    font-weight: bold;
+    font-size: 13px;
+    border-collapse: collapse;
+    text-align: -webkit-match-parent;
+    list-style-type: none;
+    box-sizing: border-box;
+    letter-spacing: normal;
+    padding: 0px;
+}
+
+hr {
+    border-color: #3077d0;
+    margin-right: 8px;
+}
+
+.undefined_field {
+    color: grey;
+    font-style: italic;
+}

@@ -2,10 +2,11 @@
 
 <head>
   <link rel="stylesheet" href="/css/fstyle.css">
-  <link rel="stylesheet" href="/css/reduced_bootstrap.css">
+  <link rel="stylesheet" href="/css/scrollbar.css">
+  <link rel="stylesheet" href="/css/fonts.css">
   <script type='text/javascript' src='/libraries/jquery-3.3.1.min.js'></script>
-    <script type='text/javascript' src='/libraries/jquery-ui.min.js'></script>
-  
+  <script type='text/javascript' src='/libraries/jquery-ui.min.js'></script>
+
 </head>
 
 <body id='finderUI'>
@@ -13,22 +14,26 @@
 
     <div class='modal-content container'>
 
-      <div class='modal-header row drag_handle' id='header_table'>
-        <div class="col-1" id='icon'>
+      <!-- HEADER -->
+      <div id='header' class='modal-header drag_handle'>
+        <a id='icon' href='#'>
           <img src='/icons/icon_clear60.png'>
-        </div>
-        <div class="col-10" id='title'>
+        </a>
+        <div id='title'>
           <h1>Selector Finder</h1>
           <h8>[
             <kbd>&#8997;&nbsp;option</kbd> or
-            <kbd>Alt</kbd> ] + left click on the object to start.</h8>
+            <kbd>Alt</kbd> ] + left click on the object to start.
+          </h8>
         </div>
-        <div class="col-1" id='close_x'>
+        <div id='close_x'>
           <button type='button' class='close' data-dismiss='modal'>&times;</button>
         </div>
       </div>
-      <div class='modal-body row' id='body_row_body'>
-        <div class="col-7" id="finder_table">
+
+      <!-- BODY -->
+      <div id='body'>
+        <div id="finder_table">
           <ul>
             <li>
               <div id='selector_title'>
@@ -54,14 +59,13 @@
             </li>
           </ul>
         </div>
-        <div class='col-5' id='body_middle_side'>
-          <!-- id="element_table"-->
-          <div class='row'>
+        <div id='body_middle_side'>
+          <div>
             <div class="col" id='investigated_tag'>
               <h3>Investigated Tag</h3>
             </div>
           </div>
-          <div class='row'>
+          <div>
             <div class='col' id='investigated_element_row'>
               <div id='investigated_element'>
                 <ul>
@@ -121,7 +125,9 @@
                   </li>
                   <li class='last'>
                     <h4>
-                      <button id='innertext_btn' type='button' class='innertext_btn' data-toggle='tooltip' data-placement='top' title='Display element innerText'>InnerText</button>&nbsp:&nbsp </h4>
+                      <button id='innertext_btn' type='button' class='innertext_btn' data-toggle='tooltip'
+                        data-placement='top' title='Display element innerText'>InnerText</button>&nbsp:&nbsp
+                    </h4>
                     <h5 id='innertext_field'></h5>
                   </li>
                 </ul>
@@ -131,35 +137,42 @@
           </div>
         </div>
       </div>
-      <div class='modal-footer row drag_handle' id='footer_row'>
-        <div id='copy_to_clipboard' class='col-2'>
-          <button id='copy_btn' type='button' class='copy_btn' data-toggle="tooltip" data-placement="top" title="Copy to clipboard">Copy Selector</button>
+      <div id='footer' class='drag_handle'>
+        <div id='copy_to_clipboard'>
+          <button id='copy_btn' type='button' class='copy_btn' data-toggle="tooltip" data-placement="top"
+            title="Copy to clipboard">Copy Selector</button>
         </div>
-        <div id='navigator_console' class='col-2  justify-content-center align-items-center align-content-center align-self-center'>
-          <div id="navigator_container" class="justify-content-center align-items-center align-content-center align-self-center">
+        <div id='navigator_console'>
+          <div id="navigator_container"
+            class="justify-content-center align-items-center align-content-center align-self-center">
             <table>
               <tbody>
                 <tr>
                   <td></td>
-                  <td id='nav_parent' class='nav_button nav_border' data-toggle="tooltip" data-placement="top" title="Parent element">
+                  <td id='nav_parent' class='nav_button nav_border' data-toggle="tooltip" data-placement="top"
+                    title="Parent element">
                     <arrow>&#9650;</arrow>
                   </td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td id='nav_prev' class='nav_button nav_border' data-toggle="tooltip" data-placement="top" title="Previous sibling element">
+                  <td id='nav_prev' class='nav_button nav_border' data-toggle="tooltip" data-placement="top"
+                    title="Previous sibling element">
                     <arrow>&#9664;</arrow>
                   </td>
-                  <td id='nav_reset' class='nav_button' data-toggle="tooltip" data-placement="top" title="Reset navigator">
+                  <td id='nav_reset' class='nav_button' data-toggle="tooltip" data-placement="top"
+                    title="Reset navigator">
                     <circlec>&#10226;</circlec>
                   </td>
-                  <td id='nav_next' class='nav_button nav_border' data-toggle="tooltip" data-placement="top" title="Next sibling element">
+                  <td id='nav_next' class='nav_button nav_border' data-toggle="tooltip" data-placement="top"
+                    title="Next sibling element">
                     <arrow>&#9654;</arrow>
                   </td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td id='nav_child' class='nav_button nav_border' data-toggle="tooltip" data-placement="top" title="First child element">
+                  <td id='nav_child' class='nav_button nav_border' data-toggle="tooltip" data-placement="top"
+                    title="First child element">
                     <arrow>&#9660;</arrow>
                   </td>
                   <td></td>
@@ -173,26 +186,28 @@
             <tbody>
               <tr>
                 <td id='test_input'>
-                  <input id="test_selector" type="text" name="test_selector" placeholder="test selector here" autocomplete="off" autocorrect="off"
-                    autocapitalize="off" spellcheck="false">
-                </td>
-                <td id='check_button'>
-                  <button id='check_btn' type='button' class='copy_btn tiny_side' data-toggle="tooltip" data-placement="top" title="Match query to element">&#10003;&#63;</button>
+                  <input id="test_selector" type="text" name="test_selector" placeholder="test selector here"
+                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                 </td>
                 <td id='find_button'>
-                  <button id='find_btn' type='button' class='copy_btn tiny_side' data-toggle="tooltip" data-placement="top" title="Search selector in field">&#128269;</button>
+                  <button id='find_btn' type='button' class='copy_btn tiny_side' data-toggle="tooltip"
+                    data-placement="top" title="Search selector">&#128269;</button>
+                </td>
+                <td id='check_button'>
+                  <button id='check_btn' type='button' class='copy_btn tiny_side' data-toggle="tooltip"
+                    data-placement="top" title="Verify input selector">&#10003;&#63;</button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class='col-1' id='recreate_bottom_wrapper'>
-          <img id='recreate_bottom' src='/icons/Recreate_GREY.png' data-toggle="tooltip"
-            data-placement="top" title="ReCreate!">
-        </div>
+        <a id='recreate_bottom_wrapper' href='#'>
+          <img id='recreate_bottom' src='/icons/Recreate_GREY.png' data-toggle="tooltip" data-placement="top"
+            title="ReCreate!">
       </div>
     </div>
-      <script type='text/javascript' src='/modules/iframeEvents.js'></script>
+  </div>
+  <script type='text/javascript' src='/modules/iframeEvents.js'></script>
 </body>
 
 </html>
