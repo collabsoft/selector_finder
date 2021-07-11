@@ -24,10 +24,7 @@
                 "modules/messageCenter.js",
                 "modules/compileDataModule.js"
             ],
-            "matches": [
-                "https://*/*",
-                "http://*/*"
-            ],
+            "matches": ["https://*/*", "http://*/*"],
             "run_at": "document_end"
         }
     ],
@@ -43,10 +40,5 @@
         "icons/icon_clear60.png",
         "icons/Recreate_GREY.png"
     ],
-    "permissions": [
-        "<all_urls>",
-        "https://*/*",
-        "http://*/*",
-        "tabs"
-    ]
+    "permissions": ["<all_urls>"]
 }
