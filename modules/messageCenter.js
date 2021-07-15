@@ -19,7 +19,6 @@ const messageCenter = (() => {
         window.focus();
         $('*').removeClass('hova_recreate_border');
         $('*').removeClass('hova_recreate_color');
-
         // reset_ui_content();
         // reset_ui_position();
     };
@@ -251,7 +250,6 @@ const messageCenter = (() => {
     };
 
     const update_actual_node = node => {
-        $(actual_node).removeClass('hova_recreate_color');
         actual_node = node;
         compileDataModule.initialize(actual_node);
     };

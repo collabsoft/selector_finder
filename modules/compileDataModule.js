@@ -30,16 +30,18 @@ const compileDataModule = (() => {
 
     const verify_string = string => !!string && typeof string === 'string';
 
-    const sanitize_class_names = () =>
-        `.${node.className
+    const sanitize_class_names = () => {
+        const s = `${node.className
+            .replace('hova_recreate_border', '')
+            .replace('hova_recreate_color', '')
             .replace(/[\[\]]/g, '')
             .replace(/^\s{2}/, ' ')
             .replace(/  +/g, ' ')
             .replace(/\s/g, '.')
             .replace(/^\.{2}/, '.')
-            .replace('.hova_recreate_border', '')
-            .replace('.hova_recreate_color', '')
             .replace(/\.$/, '')}`;
+        return s ? `.${s}` : undefined;
+    };
 
     const insert_mapnode = () => {
         structure.unshift(mapnode);

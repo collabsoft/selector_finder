@@ -41,7 +41,6 @@ const onLoadModule = (() => {
                     e.stopPropagation();
                     e.stopImmediatePropagation();
                     // $('*').removeClass('hova_recreate_border');
-                    // $('*').removeClass('hova_recreate_color');
                 }
             });
 
